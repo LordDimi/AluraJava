@@ -1,10 +1,7 @@
 package alurajava;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Map;
-import java.util.Properties;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -15,19 +12,10 @@ public class App {
     }
 
     public static void main(String[] args){
-        String apiKey = getApiKey();
+        String apiKey = "d16ede8e558218804d62e775";
         System.out.println(ExchangeValue(apiKey, "USD", "AED"));
     }
 
-    private static String getApiKey() {
-        Properties properties = new Properties();
-        try {
-            properties.load(Files.newInputStream(Paths.get("config.properties")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return properties.getProperty("apiKey");
-    }
 
     public static String ExchangeRateAPI(String APIKey, String BaseCoin){
         String exchangeRateJSON = null;
